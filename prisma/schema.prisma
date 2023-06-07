@@ -21,7 +21,7 @@ model User {
   profile      Profile?
   tasks       Task[]   @relation("TaskToAuthor")
   sharedTasks Task[]   @relation("TaskToUser")
-}
+} 
 
 model Profile {
   id        Int     @id @default(autoincrement())

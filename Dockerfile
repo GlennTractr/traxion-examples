@@ -6,6 +6,9 @@ FROM node:18-alpine3.17 AS base
 # set working directory
 WORKDIR /app
 
+ARG DATABASE_URL
+ENV DATABASE_URL ${DATABASE_URL}
+
 # copy project files
 COPY ./package.json .
 COPY ./package-lock.json .

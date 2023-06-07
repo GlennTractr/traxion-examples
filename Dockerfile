@@ -6,9 +6,6 @@ FROM node:18-alpine3.17 AS base
 # set working directory
 WORKDIR /app
 
-ARG DATABASE_URL
-ENV DATABASE_URL ${DATABASE_URL}
-
 # copy project files
 COPY ./package.json .
 COPY ./package-lock.json .
@@ -27,10 +24,6 @@ EXPOSE 3000
 COPY . .
 
 RUN npx prisma generate
-
-RUN npx prisma db push
-
-RUN npx prisma db seed
 
 CMD ["npm", "start"]
 
